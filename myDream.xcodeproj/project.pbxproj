@@ -11,7 +11,6 @@
 		9B872C272846A34200FCDAEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B872C262846A34200FCDAEC /* ContentView.swift */; };
 		9B872C292846A34300FCDAEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B872C282846A34300FCDAEC /* Assets.xcassets */; };
 		9B872C2C2846A34300FCDAEC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B872C2B2846A34300FCDAEC /* Preview Assets.xcassets */; };
-		9B872C2E2846A34400FCDAEC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B872C2D2846A34400FCDAEC /* Persistence.swift */; };
 		9B872C312846A34400FCDAEC /* myDream.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B872C2F2846A34400FCDAEC /* myDream.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -21,7 +20,6 @@
 		9B872C262846A34200FCDAEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9B872C282846A34300FCDAEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B872C2B2846A34300FCDAEC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		9B872C2D2846A34400FCDAEC /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9B872C302846A34400FCDAEC /* myDream.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = myDream.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,7 +56,6 @@
 				9B872C242846A34200FCDAEC /* myDreamApp.swift */,
 				9B872C262846A34200FCDAEC /* ContentView.swift */,
 				9B872C282846A34300FCDAEC /* Assets.xcassets */,
-				9B872C2D2846A34400FCDAEC /* Persistence.swift */,
 				9B872C2F2846A34400FCDAEC /* myDream.xcdatamodeld */,
 				9B872C2A2846A34300FCDAEC /* Preview Content */,
 			);
@@ -143,7 +140,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B872C2E2846A34400FCDAEC /* Persistence.swift in Sources */,
 				9B872C272846A34200FCDAEC /* ContentView.swift in Sources */,
 				9B872C252846A34200FCDAEC /* myDreamApp.swift in Sources */,
 				9B872C312846A34400FCDAEC /* myDream.xcdatamodeld in Sources */,
