@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            Text("My Dream App")
+            Text("Kayıt Ol")
         }
     }
 
