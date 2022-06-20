@@ -16,7 +16,7 @@ struct Input: View {
     
     var body: some View {
         if(!isSecure){
-            TextField(placeHolder, text: $value).padding(15).frame(width: width).overlay(RoundedRectangle(cornerRadius: 15).stroke(.black, lineWidth: 2))
+            TextField(placeHolder, text: $value).padding(15).frame(width: width).overlay(RoundedRectangle(cornerRadius: 15).stroke(.black, lineWidth: 2)).keyboardType(.emailAddress).disableAutocorrection(true).textInputAutocapitalization(.never)
         } else{
             SecureField(placeHolder, text: $value).padding(15).frame(width: width).overlay(RoundedRectangle(cornerRadius: 15).stroke(.black, lineWidth: 2))
         }

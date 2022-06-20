@@ -6,39 +6,59 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct LoginScreen: View {
     @State var email: String = ""
     @State var password: String = ""
+    @State var loading: Bool = false
+    @State var logged: Bool = false
     
     @Environment(\.presentationMode) var presentationMode
     
     let size = UIScreen.main.bounds
     
     func login(){
-        print("df")
+        loading = true
+        Auth.auth().signIn(withEmail: email, password: password){(result, error) in
+            if error != nil{
+                loading = false
+                print(error?.localizedDescription ?? "")
+            }else {
+                loading = false
+                logged = true
+            }
+        }
+
     }
     
     var body: some View {
-        NavigationView{
-            VStack{
-                Text("Giriş Yap").bold().font(.largeTitle).padding(EdgeInsets(top: size.height*0.1, leading: 0, bottom: size.height*0.1, trailing: 0))
-                
-                Input(value: $email, placeHolder: "E-posta", isSecure: false, width: size.width*0.9)
-                Input(value: $password, placeHolder: "Şifre", isSecure: true, width: size.width*0.9)
+        if(loading){
+            ProgressView("Bekleniyor")
+        } else{
+            NavigationView{
+                VStack{
+                    Text("Giriş Yap").bold().font(.largeTitle).padding(EdgeInsets(top: size.height*0.1, leading: 0, bottom: size.height*0.1, trailing: 0))
+                    
+                    Input(value: $email, placeHolder: "E-posta", isSecure: false, width: size.width*0.9)
+                    Input(value: $password, placeHolder: "Şifre", isSecure: true, width: size.width*0.9)
 
-                Spacer()
-                
-                Button("Giriş Yap"){
-                    login()
-                }.padding(EdgeInsets(top: 0, leading: 0, bottom: size.height*0.03, trailing: 0))
-                Button("Kayıt Ol"){
-                    presentationMode.wrappedValue.dismiss()
+                    Spacer()
+                    
+                    NavigationLink(destination: Main(), isActive: $logged){
+                        Button("Giriş Yap"){
+                            login()
+                        }.padding(EdgeInsets(top: 0, leading: 0, bottom: size.height*0.03, trailing: 0))
+                    }
+                    
+                    Button("Kayıt Ol"){
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    
+                    Spacer()
                 }
-                
-                Spacer()
+                .navigationBarHidden(true)
             }
-            .navigationBarHidden(true)
         }
     }
 }

@@ -20,6 +20,10 @@
 		9B01246B28495FC6008631BA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9B01246A28495FC6008631BA /* FirebaseFirestoreSwift */; };
 		9B01246D28495FC6008631BA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9B01246C28495FC6008631BA /* FirebaseStorage */; };
 		9B01246F28495FC6008631BA /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 9B01246E28495FC6008631BA /* FirebaseStorageCombine-Community */; };
+		9B1E64FB28611538009FEB26 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1E64FA28611538009FEB26 /* Settings.swift */; };
+		9B1E64FE286122BA009FEB26 /* Explore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1E64FD286122BA009FEB26 /* Explore.swift */; };
+		9B1E6500286122F1009FEB26 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1E64FF286122F1009FEB26 /* Search.swift */; };
+		9B1E650228612331009FEB26 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1E650128612331009FEB26 /* Main.swift */; };
 		9B872C252846A34200FCDAEC /* myDreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B872C242846A34200FCDAEC /* myDreamApp.swift */; };
 		9B872C272846A34200FCDAEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B872C262846A34200FCDAEC /* ContentView.swift */; };
 		9B872C292846A34300FCDAEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B872C282846A34300FCDAEC /* Assets.xcassets */; };
@@ -42,6 +46,10 @@
 		9B0124532849480A008631BA /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		9B012457284948AA008631BA /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 		9B01245B28495F0A008631BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9B1E64FA28611538009FEB26 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		9B1E64FD286122BA009FEB26 /* Explore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explore.swift; sourceTree = "<group>"; };
+		9B1E64FF286122F1009FEB26 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		9B1E650128612331009FEB26 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		9B872C212846A34200FCDAEC /* myDream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myDream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B872C242846A34200FCDAEC /* myDreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myDreamApp.swift; sourceTree = "<group>"; };
 		9B872C262846A34200FCDAEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,10 +122,22 @@
 		9B01245628494892008631BA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				9B1E64FC2861228E009FEB26 /* Tabs */,
 				9B0124512849441E008631BA /* SignUpScreen.swift */,
 				9B0124532849480A008631BA /* LoginScreen.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		9B1E64FC2861228E009FEB26 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				9B1E64FA28611538009FEB26 /* Settings.swift */,
+				9B1E64FD286122BA009FEB26 /* Explore.swift */,
+				9B1E64FF286122F1009FEB26 /* Search.swift */,
+				9B1E650128612331009FEB26 /* Main.swift */,
+			);
+			path = Tabs;
 			sourceTree = "<group>";
 		};
 		9B872C182846A34200FCDAEC = {
@@ -256,12 +276,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B1E650228612331009FEB26 /* Main.swift in Sources */,
+				9B1E6500286122F1009FEB26 /* Search.swift in Sources */,
 				9B012458284948AA008631BA /* Input.swift in Sources */,
 				9B872C272846A34200FCDAEC /* ContentView.swift in Sources */,
 				9B872C252846A34200FCDAEC /* myDreamApp.swift in Sources */,
 				9B872C312846A34400FCDAEC /* myDream.xcdatamodeld in Sources */,
+				9B1E64FB28611538009FEB26 /* Settings.swift in Sources */,
 				9B0124522849441E008631BA /* SignUpScreen.swift in Sources */,
 				9B0124542849480A008631BA /* LoginScreen.swift in Sources */,
+				9B1E64FE286122BA009FEB26 /* Explore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
