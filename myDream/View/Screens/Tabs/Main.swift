@@ -12,15 +12,15 @@ struct Main: View {
         TabView{
             Explore().navigationBarBackButtonHidden(true)
                 .tabItem{
-                    Label("Keşfet", systemImage: "Home")
+                    Label("Keşfet", systemImage: "eye.fill")
                 }
-            Search()
+            AddDream()
                 .tabItem{
-                    Label("Ara", systemImage: "Home")
+                    Label("Paylaş", systemImage: "plus.message.fill")
                 }
             Settings()
                 .tabItem{
-                    Label("Ayarlar", systemImage: "Gear")
+                    Label("Ayarlar", systemImage: "gearshape.fill")
                 }
         }
     }

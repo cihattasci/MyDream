@@ -12,7 +12,7 @@ struct Explore: View {
         NavigationView{
             Text("explore")
         }
-        .navigationBarBackButtonHidden(false)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
