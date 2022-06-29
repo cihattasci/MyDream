@@ -9,15 +9,24 @@ import SwiftUI
 import Firebase
 
 struct ContentView: View {
+    @ObservedObject var auth = AuthManager()
 
     var body: some View {
-        SignUpScreen()
+        if auth.loading{
+            ProgressView()
+        } else{
+            if auth.session{
+                Main()
+            } else{
+                SignUpScreen()
+            }
+        }
     }
 
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

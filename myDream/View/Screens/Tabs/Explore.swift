@@ -6,13 +6,35 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct Explore: View {
+    @ObservedObject var dreamsModelView = DreamManager()
+    
+    init(){
+        dreamsModelView.fetchAllDreams()
+    }
+
     var body: some View {
         NavigationView{
-            Text("explore")
+            VStack{
+                Rectangle()
+                    .frame(width: UIScreen.main.bounds.width, height: 0)
+                    .background(Color(hex: 0x03fcbe))
+                List(dreamsModelView.dreams) { dream in
+//                    DreamElement(title: dream.title, description: dream.description)
+                    Text(dream.title).foregroundColor(.red)
+                }
+                
+//                ForEach(dreamsModelView.dreams) { dream in
+//                    DreamElement(title: dream.title, description: dream.description)
+//                }
+                
+//                Spacer()
+            }
         }
-        .navigationBarBackButtonHidden(true)
+        .navigationTitle("Keşfet")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct Main: View {
     var body: some View {
@@ -14,11 +15,15 @@ struct Main: View {
                 .tabItem{
                     Label("Keşfet", systemImage: "eye.fill")
                 }
-            AddDream()
+            AddDream().navigationBarBackButtonHidden(true)
                 .tabItem{
                     Label("Paylaş", systemImage: "plus.message.fill")
                 }
-            Settings()
+            MyDreams().navigationBarBackButtonHidden(true)
+                .tabItem{
+                    Label("Rüyalarım", systemImage: "paperclip.circle.fill")
+                }
+            Settings().navigationBarBackButtonHidden(true)
                 .tabItem{
                     Label("Ayarlar", systemImage: "gearshape.fill")
                 }
