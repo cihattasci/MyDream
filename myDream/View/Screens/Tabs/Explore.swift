@@ -25,16 +25,10 @@ struct Explore: View {
 //                    DreamElement(title: dream.title, description: dream.description)
                     Text(dream.title).foregroundColor(.red)
                 }
-                
-//                ForEach(dreamsModelView.dreams) { dream in
-//                    DreamElement(title: dream.title, description: dream.description)
-//                }
-                
-//                Spacer()
             }
         }
         .navigationTitle("Keşfet")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 
