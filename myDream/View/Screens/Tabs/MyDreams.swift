@@ -12,7 +12,11 @@ struct MyDreams: View {
     @ObservedObject var dreamViewModel = DreamManager()
     
     init(){
-        dreamViewModel.fetchAllDreams()
+        dreamViewModel.fetchMyDreams()
+    }
+    
+    func removeRows(at offsets: IndexSet){
+        dreamViewModel.myDreams.remove(atOffsets: offsets)
     }
     
     var body: some View {
@@ -21,13 +25,16 @@ struct MyDreams: View {
                 Rectangle()
                     .frame(width: UIScreen.main.bounds.width, height: 0)
                     .background(Color(hex: 0x03fcbe))
-                List(dreamViewModel.dreams){ dream in
-                    Text(dream.title).foregroundColor(.red)
+                List{
+                    ForEach(dreamViewModel.myDreams) { dream in
+                        NavigationLink(destination: DreamDetailScreen()){
+                            DreamElement(title: dream.title, description: dream.description)
+                        }
+                    }.onDelete(perform: removeRows)
                 }
-                .background(.green)
             }
             .navigationTitle("Rüyalarım")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.inline )
         }
     }
 }

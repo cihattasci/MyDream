@@ -35,7 +35,7 @@ struct AddDream: View {
     func addDream(){
         if(!title.isEmpty && !description.isEmpty){
             loading = true
-            Firestore.firestore().collection("dreams").addDocument(data: ["id": uid, "title": title, "description": description]) { error in
+            Firestore.firestore().collection("dreams").addDocument(data: ["id": uid ?? "", "title": title, "description": description]) { error in
                 if error != nil{
                     loading = false
                     successAlert = false

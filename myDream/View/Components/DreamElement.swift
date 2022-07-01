@@ -15,20 +15,20 @@ struct DreamElement: View {
     var body: some View {
         VStack{
             HStack{
-                Text(title).font(.title)
+                Text(title).font(.headline).foregroundColor(.black)
                 Spacer()
             }
             Spacer()
             HStack{
-                Text(description).font(.body).lineLimit(2)
+                Text(description).font(.body).foregroundColor(.black).lineLimit(2)
                 Spacer()
             }
-        }.padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)).frame(width: size.width * 0.9, height: size.height * 0.11).overlay(RoundedRectangle(cornerRadius: 10).stroke(.brown, lineWidth: 2))
+        }.padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)).frame(width: .infinity, height: size.height * 0.07)
     }
 }
 
-//struct DreamElement_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DreamElement()
-//    }
-//}
+struct DreamElement_Previews: PreviewProvider {
+    static var previews: some View {
+        DreamElement(title: "sdf", description: "sdfg")
+    }
+}
