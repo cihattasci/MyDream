@@ -103,6 +103,7 @@
 		9B01244E2849437F008631BA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9B1E64FC2861228E009FEB26 /* Tabs */,
 				9B01245628494892008631BA /* Screens */,
 				9B01245528494889008631BA /* Components */,
 			);
@@ -138,8 +139,8 @@
 		9B01245628494892008631BA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				9B1E64FC2861228E009FEB26 /* Tabs */,
 				9B0124512849441E008631BA /* SignUpScreen.swift */,
+				9BAF7B7A286275CC009BDE0F /* AddDream.swift */,
 				9B0124532849480A008631BA /* LoginScreen.swift */,
 				9B15972D286F63D7001B2898 /* DreamDetailScreen.swift */,
 			);
@@ -152,7 +153,6 @@
 				9B1E64FA28611538009FEB26 /* Settings.swift */,
 				9B1E64FD286122BA009FEB26 /* Explore.swift */,
 				9B1E650128612331009FEB26 /* Main.swift */,
-				9BAF7B7A286275CC009BDE0F /* AddDream.swift */,
 				9B783A99286A622700F3282B /* MyDreams.swift */,
 			);
 			path = Tabs;
