@@ -15,10 +15,6 @@ struct Main: View {
                 .tabItem{
                     Label("Keşfet", systemImage: "eye.fill")
                 }
-            AddDream().navigationBarBackButtonHidden(true)
-                .tabItem{
-                    Label("Paylaş", systemImage: "plus.message.fill")
-                }
             MyDreams().navigationBarBackButtonHidden(true)
                 .tabItem{
                     Label("Rüyalarım", systemImage: "paperclip.circle.fill")
