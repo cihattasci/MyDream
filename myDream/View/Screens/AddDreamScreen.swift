@@ -1,5 +1,5 @@
 //
-//  AddDream.swift
+//  AddDreamScreen.swift
 //  myDream
 //
 //  Created by Cihat Tascı on 22.06.2022.
@@ -20,7 +20,7 @@ extension Color {
     }
 }
 
-struct AddDream: View {
+struct AddDreamScreen: View {
     @State var title: String = ""
     @State var description: String = ""
     @State var loading: Bool = false
@@ -102,8 +102,8 @@ struct AddDream: View {
     }
 }
 
-struct AddDream_Previews: PreviewProvider {
+struct AddDreamScreen_Previews: PreviewProvider {
     static var previews: some View {
-        AddDream()
+        AddDreamScreen()
     }
 }

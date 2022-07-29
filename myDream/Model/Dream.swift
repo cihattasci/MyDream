@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Dream: Codable, Identifiable{
+struct Dream: Codable, Identifiable, Hashable{
     let id: String
     let title: String
     let description: String

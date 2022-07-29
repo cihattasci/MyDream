@@ -11,13 +11,14 @@ import Firebase
 struct MyDreams: View {
     @ObservedObject var dreamViewModel = DreamManager()
     @State var addScreen: Bool = false
+    @State var goToEdit: Bool = false
     
     init(){
         dreamViewModel.fetchMyDreams()
     }
     
-    func removeRows(at offsets: IndexSet){
-        dreamViewModel.deleteDream(index: offsets)
+    func removeDream(dream: Dream){
+        dreamViewModel.deleteDream(dream: dream)
     }
     
     var body: some View {
@@ -30,22 +31,29 @@ struct MyDreams: View {
                         .frame(width: UIScreen.main.bounds.width, height: 0)
                         .background(Color(hex: 0x03fcbe))
                     List{
-                        ForEach(dreamViewModel.myDreams) { dream in
-                            NavigationLink(destination: DreamDetailScreen()){
-                                DreamElement(title: dream.title, description: dream.description)
+                        ForEach(dreamViewModel.myDreams, id: \.self) { dream in
+                            NavigationLink(destination: EditDreamScreen()){
+                                DreamElement(dream: Dream(id: dream.id, title: dream.title, description: dream.description))
                             }
-                        }.onDelete(perform: removeRows)
+                            .swipeActions(edge: .trailing) {
+                                Button(role: .destructive) {
+                                    removeDream(dream: dream)
+                                } label: {
+                                    Label("Sil", systemImage: "trash").foregroundColor(.white)
+                                }
+                            }
+                        }
                     }
                 }
                 .toolbar{
                     ToolbarItem(placement: .navigationBarTrailing, content: {
-                        NavigationLink(destination: AddDream().accentColor(.black), isActive: $addScreen) {
+                        NavigationLink(destination: AddDreamScreen().accentColor(.black), isActive: $addScreen) {
                             Button {
                                 self.addScreen = true
                             } label: {
                                 Image(systemName: "plus").foregroundColor(.black)
                             }
-
+                            
                         }
                     })
                 }
