@@ -12,12 +12,14 @@ class DreamManager: ObservableObject{
     @Published var dreams = [Dream]()
     @Published var myDreams = [Dream]()
     @Published var loading: Bool = false
-    @Published var searchResult = [Dream]()
+    @Published var searchResultTitle = [Dream]()
+    @Published var searchResultDescription = [Dream]()
     
     private let user = Auth.auth().currentUser
+    private let db = Firestore.firestore().collection("dreams")
 
     func fetchAllDreams(){
-        Firestore.firestore().collection("dreams").getDocuments { snapshot, error in
+        db.getDocuments { snapshot, error in
             guard let documents = snapshot?.documents else {
                 print ("no docs returned!")
                 return
@@ -35,7 +37,7 @@ class DreamManager: ObservableObject{
     }
     
     func fetchMyDreams(){
-        Firestore.firestore().collection("dreams").whereField("id", isEqualTo: user?.uid ?? "").getDocuments { snapshot, error in
+        db.whereField("id", isEqualTo: user?.uid ?? "").getDocuments { snapshot, error in
             guard let documents = snapshot?.documents else {
                 print ("no my dreams docs returned!")
                 return
@@ -53,13 +55,29 @@ class DreamManager: ObservableObject{
     }
     
     func searchDream(text: String) {
-        Firestore.firestore().collection("dreams").whereField("description", isEqualTo: text).getDocuments { snapshot, error in
+        db.whereField("title", isEqualTo: text).getDocuments { snapshot, error in
             guard let documents = snapshot?.documents else{
                 print("no search result")
                 return
             }
 
-            self.searchResult = documents.map({ doc -> Dream in
+            self.searchResultTitle = documents.map({ doc -> Dream in
+                let data = doc.data()
+                let id = data["id"] as? String ?? ""
+                let title = data["title"] as? String ?? ""
+                let description = data["description"] as? String ?? ""
+                
+                return Dream(id: id, title: title, description: description)
+            })
+        }
+        
+        db.whereField("description", isEqualTo: text).getDocuments { snapshot, error in
+            guard let documents = snapshot?.documents else{
+                print("no search result")
+                return
+            }
+
+            self.searchResultDescription = documents.map({ doc -> Dream in
                 let data = doc.data()
                 let id = data["id"] as? String ?? ""
                 let title = data["title"] as? String ?? ""
@@ -70,7 +88,32 @@ class DreamManager: ObservableObject{
         }
     }
     
-    func deleteDream(index: IndexSet){
-//        loading = true
+    func deleteDream(dream: Dream){
+        loading = true
+        db.whereField("id", isEqualTo: dream.id).getDocuments { snapshot, error in
+            guard let docs = snapshot?.documents else{
+                print("no data")
+                self.loading = false
+                return
+            }
+            
+            docs.map({ doc -> Int in
+                let data = doc.data()
+                if(dream.id == data["id"] as! String && dream.description == data["description"] as! String && dream.title == data["title"] as! String){
+                    self.db.document(doc.documentID).delete(){ err in
+                        if let error = err {
+                            print("Silinemedi: \(error.localizedDescription)")
+                            self.loading = false
+                            return
+                        }
+                    }
+                    self.loading = false
+                    return 1
+                } else{
+                    self.loading = false
+                    return 0
+                }
+            })
+        }
     }
 }
