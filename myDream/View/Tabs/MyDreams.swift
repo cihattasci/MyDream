@@ -8,6 +8,8 @@
 import SwiftUI
 import Firebase
 
+//rüyam yoksa sayfası oluştur
+
 struct MyDreams: View {
     @ObservedObject var dreamViewModel = DreamManager()
     @State var addScreen: Bool = false
@@ -33,7 +35,7 @@ struct MyDreams: View {
                     List{
                         ForEach(dreamViewModel.myDreams, id: \.self) { dream in
                             NavigationLink(destination: EditDreamScreen()){
-                                DreamElement(dream: Dream(id: dream.id, title: dream.title, description: dream.description))
+                                DreamElement(dream: Dream(docID: dream.docID, id: dream.id, title: dream.title, description: dream.description, likeCount: dream.likeCount, commentCount: dream.commentCount))
                             }
                             .swipeActions(edge: .trailing) {
                                 Button(role: .destructive) {
@@ -43,6 +45,8 @@ struct MyDreams: View {
                                 }
                             }
                         }
+                    }.refreshable {
+                        dreamViewModel.fetchMyDreams()
                     }
                 }
                 .toolbar{

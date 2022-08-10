@@ -8,8 +8,11 @@
 import Foundation
 
 struct Dream: Codable, Identifiable, Hashable{
+    let docID: String
     let id: String
     let title: String
     let description: String
+    let likeCount: Int
+    let commentCount: Int
 }
 
