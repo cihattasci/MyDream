@@ -28,7 +28,7 @@
 		9B28879D286A12E000BD4F9B /* DreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B28879C286A12E000BD4F9B /* DreamManager.swift */; };
 		9B28879F286A137900BD4F9B /* Dream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B28879E286A137900BD4F9B /* Dream.swift */; };
 		9B3B93642868BFCF002FE453 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B93632868BFCF002FE453 /* AuthManager.swift */; };
-		9B6546F8287A55D4000A5698 /* DreamElementExplore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6546F7287A55D4000A5698 /* DreamElementExplore.swift */; };
+		9B73EABD289E8D4A00B4FC63 /* CommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73EABC289E8D4A00B4FC63 /* CommentManager.swift */; };
 		9B783A9A286A622700F3282B /* MyDreams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B783A99286A622700F3282B /* MyDreams.swift */; };
 		9B872C252846A34200FCDAEC /* myDreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B872C242846A34200FCDAEC /* myDreamApp.swift */; };
 		9B872C272846A34200FCDAEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B872C262846A34200FCDAEC /* ContentView.swift */; };
@@ -45,7 +45,12 @@
 		9B872C472846ACB200FCDAEC /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 9B872C462846ACB200FCDAEC /* FirebaseMessaging */; };
 		9B872C492846ACB200FCDAEC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9B872C482846ACB200FCDAEC /* FirebaseStorage */; };
 		9B872C4B2846ACB200FCDAEC /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 9B872C4A2846ACB200FCDAEC /* FirebaseStorageCombine-Community */; };
+		9B8BD5F328A2C55D00976421 /* LikeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8BD5F228A2C55D00976421 /* LikeManager.swift */; };
+		9B8BD5F528A2C69500976421 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8BD5F428A2C69500976421 /* Like.swift */; };
+		9BA8980F289FEFB100A0E1FD /* CommentElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA8980E289FEFB100A0E1FD /* CommentElement.swift */; };
 		9BAF7B7B286275CC009BDE0F /* AddDreamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF7B7A286275CC009BDE0F /* AddDreamScreen.swift */; };
+		9BB363F62895A49400FA9D59 /* AddCommentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB363F52895A49400FA9D59 /* AddCommentScreen.swift */; };
+		9BC6D2542896F07500411F82 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC6D2532896F07500411F82 /* Comment.swift */; };
 		9BFB1949287B12B100090BEE /* EditDreamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB1948287B12B100090BEE /* EditDreamScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +67,7 @@
 		9B28879C286A12E000BD4F9B /* DreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamManager.swift; sourceTree = "<group>"; };
 		9B28879E286A137900BD4F9B /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
 		9B3B93632868BFCF002FE453 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		9B6546F7287A55D4000A5698 /* DreamElementExplore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamElementExplore.swift; sourceTree = "<group>"; };
+		9B73EABC289E8D4A00B4FC63 /* CommentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentManager.swift; sourceTree = "<group>"; };
 		9B783A99286A622700F3282B /* MyDreams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDreams.swift; sourceTree = "<group>"; };
 		9B872C212846A34200FCDAEC /* myDream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myDream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B872C242846A34200FCDAEC /* myDreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myDreamApp.swift; sourceTree = "<group>"; };
@@ -70,7 +75,12 @@
 		9B872C282846A34300FCDAEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B872C2B2846A34300FCDAEC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9B872C302846A34400FCDAEC /* myDream.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = myDream.xcdatamodel; sourceTree = "<group>"; };
+		9B8BD5F228A2C55D00976421 /* LikeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeManager.swift; sourceTree = "<group>"; };
+		9B8BD5F428A2C69500976421 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		9BA8980E289FEFB100A0E1FD /* CommentElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentElement.swift; sourceTree = "<group>"; };
 		9BAF7B7A286275CC009BDE0F /* AddDreamScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDreamScreen.swift; sourceTree = "<group>"; };
+		9BB363F52895A49400FA9D59 /* AddCommentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentScreen.swift; sourceTree = "<group>"; };
+		9BC6D2532896F07500411F82 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		9BFB1948287B12B100090BEE /* EditDreamScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDreamScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				9B28879E286A137900BD4F9B /* Dream.swift */,
+				9BC6D2532896F07500411F82 /* Comment.swift */,
+				9B8BD5F428A2C69500976421 /* Like.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -127,6 +139,8 @@
 			children = (
 				9B3B93632868BFCF002FE453 /* AuthManager.swift */,
 				9B28879C286A12E000BD4F9B /* DreamManager.swift */,
+				9B73EABC289E8D4A00B4FC63 /* CommentManager.swift */,
+				9B8BD5F228A2C55D00976421 /* LikeManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -136,7 +150,7 @@
 			children = (
 				9B012457284948AA008631BA /* Input.swift */,
 				9B22507C286CFE810029EC73 /* DreamElement.swift */,
-				9B6546F7287A55D4000A5698 /* DreamElementExplore.swift */,
+				9BA8980E289FEFB100A0E1FD /* CommentElement.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -149,6 +163,7 @@
 				9B0124532849480A008631BA /* LoginScreen.swift */,
 				9B15972D286F63D7001B2898 /* DreamDetailScreen.swift */,
 				9BFB1948287B12B100090BEE /* EditDreamScreen.swift */,
+				9BB363F52895A49400FA9D59 /* AddCommentScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -302,22 +317,27 @@
 			files = (
 				9B1E650228612331009FEB26 /* Main.swift in Sources */,
 				9B012458284948AA008631BA /* Input.swift in Sources */,
+				9BA8980F289FEFB100A0E1FD /* CommentElement.swift in Sources */,
 				9B28879D286A12E000BD4F9B /* DreamManager.swift in Sources */,
 				9B872C272846A34200FCDAEC /* ContentView.swift in Sources */,
 				9B872C252846A34200FCDAEC /* myDreamApp.swift in Sources */,
+				9B73EABD289E8D4A00B4FC63 /* CommentManager.swift in Sources */,
 				9B783A9A286A622700F3282B /* MyDreams.swift in Sources */,
 				9B872C312846A34400FCDAEC /* myDream.xcdatamodeld in Sources */,
 				9BAF7B7B286275CC009BDE0F /* AddDreamScreen.swift in Sources */,
 				9B1E64FB28611538009FEB26 /* Settings.swift in Sources */,
 				9B0124522849441E008631BA /* SignUpScreen.swift in Sources */,
 				9B22507D286CFE810029EC73 /* DreamElement.swift in Sources */,
+				9B8BD5F528A2C69500976421 /* Like.swift in Sources */,
 				9B3B93642868BFCF002FE453 /* AuthManager.swift in Sources */,
-				9B6546F8287A55D4000A5698 /* DreamElementExplore.swift in Sources */,
 				9B28879F286A137900BD4F9B /* Dream.swift in Sources */,
 				9B0124542849480A008631BA /* LoginScreen.swift in Sources */,
+				9B8BD5F328A2C55D00976421 /* LikeManager.swift in Sources */,
+				9BC6D2542896F07500411F82 /* Comment.swift in Sources */,
 				9BFB1949287B12B100090BEE /* EditDreamScreen.swift in Sources */,
 				9B15972E286F63D7001B2898 /* DreamDetailScreen.swift in Sources */,
 				9B1E64FE286122BA009FEB26 /* Explore.swift in Sources */,
+				9BB363F62895A49400FA9D59 /* AddCommentScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

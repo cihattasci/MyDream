@@ -39,7 +39,7 @@ struct AddDreamScreen: View {
     func addDream(){
         if(!title.isEmpty && !description.isEmpty){
             loading = true
-            Firestore.firestore().collection("dreams").addDocument(data: ["id": uid ?? "", "title": title, "description": description]) { error in
+            Firestore.firestore().collection("dreams").addDocument(data: ["id": uid ?? "", "title": title, "description": description, "createdAt": FirebaseFirestore.FieldValue.serverTimestamp()]) { error in
                 if error != nil{
                     loading = false
                     successAlert = false
@@ -74,7 +74,7 @@ struct AddDreamScreen: View {
                     .padding([.top], 20)
                 
                 TextField("Rüya İçeriği", text: $description)
-                    .frame(height: height*0.3)
+                    .frame(height: height*0.3, alignment: .topLeading)
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.sentences)
                     .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))

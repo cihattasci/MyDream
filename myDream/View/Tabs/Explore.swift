@@ -11,6 +11,8 @@ import Firebase
 struct Explore: View {
     @ObservedObject var dreamsModelView = DreamManager()
     @State var searchDream: String = ""
+    @State var goToCommentScreen: Bool = false
+    @State var showComment: Bool = false
     
     init(){
         dreamsModelView.fetchAllDreams()
@@ -29,7 +31,7 @@ struct Explore: View {
                         if dreamsModelView.searchResultTitle.count != 0 {
                             Section(header: Text("Başlık").font(.callout)) {
                                 ForEach(dreamsModelView.searchResultTitle, id: \.self){dream in
-                                    NavigationLink(destination: DreamDetailScreen()) {
+                                    NavigationLink(destination: DreamDetailScreen(dream: dream)) {
                                         Text(dream.title)
                                     }
                                 }
@@ -38,7 +40,7 @@ struct Explore: View {
                         if dreamsModelView.searchResultDescription.count != 0 {
                             Section(header: Text("Konu").font(.callout)) {
                                 ForEach(dreamsModelView.searchResultDescription, id: \.self){dream in
-                                    NavigationLink(destination: DreamDetailScreen()) {
+                                    NavigationLink(destination: DreamDetailScreen(dream: dream)) {
                                         Text(dream.description)
                                     }
                                 }
@@ -47,11 +49,15 @@ struct Explore: View {
                 } else{
                     List{
                         ForEach(dreamsModelView.dreams, id: \.self){dream in
-                            NavigationLink(destination: DreamDetailScreen()) {
-                                DreamElement(dream: Dream(id: dream.id, title: dream.title, description: dream.description))
+                            NavigationLink(destination: DreamDetailScreen(dream: dream)){
+                                DreamElement(dream: Dream(docID: dream.docID, id: dream.id, title: dream.title, description: dream.description, likeCount: dream.likeCount, commentCount: dream.commentCount))
                             }
                         }
-                    }.listStyle(.insetGrouped)
+                    }
+                    .listStyle(.grouped)
+                    .refreshable {
+                        dreamsModelView.fetchAllDreams()
+                    }
                 }
             }
             .searchable(text: $searchDream, prompt: "Konu, metin veya başlık").onChange(of: searchDream, perform: { newValue in
@@ -60,10 +66,10 @@ struct Explore: View {
                 } else{
                     dreamsModelView.searchDream(text: newValue)
                 }
-            }).foregroundColor(.black)
+            }).foregroundColor(.black).disableAutocorrection(true).textInputAutocapitalization(TextInputAutocapitalization.never)
                 .navigationTitle("Keşfet")
                 .navigationBarTitleDisplayMode(.inline)
-        }
+        }.accentColor(.black)
     }
 }
 
