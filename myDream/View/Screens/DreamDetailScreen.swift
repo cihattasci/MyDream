@@ -15,11 +15,11 @@ struct DreamDetailScreen: View {
     @State var goToCommentScreen: Bool = false
     @State var showComment: Bool = false
     @State var editCommentSheet: Bool = false
-    @State var selectedComment: Comment = Comment(docID: "", id: "", dreamId: "", comment: "")
+    @State var selectedComment: Comment = Comment(docID: "", id: "", dreamId: "", comment: "", dream: Dream(docID: "", id: "", title: "", description: "", likeCount: 0, commentCount: 0))
     @State var newComment: String = ""
     
     private let user = Auth.auth().currentUser
-    let size = UIScreen.main.bounds
+    private let size = UIScreen.main.bounds
     let dream: Dream
     
     var body: some View {
@@ -79,6 +79,9 @@ struct DreamDetailScreen: View {
                                     })
                             }
                         }.listStyle(GroupedListStyle())
+                            .refreshable {
+                                commentViewModel.fetchCommentOfDream(dreamId: dream.id)
+                            }
                     }
                 }
             }
@@ -94,12 +97,13 @@ struct DreamDetailScreen: View {
                 Spacer()
                 Button {
                     commentViewModel.updateComment(comment: self.selectedComment, newComment: self.newComment)
+                    self.editCommentSheet.toggle()
                 } label: {
                     Text("Yorumu Güncelle").foregroundColor(.blue).padding([.vertical], 10)
                 }.disabled(self.newComment.isEmpty)
                 Button {
                     self.editCommentSheet.toggle()
-                    self.selectedComment = Comment(docID: "", id: "", dreamId: "", comment: "")
+                    self.selectedComment = Comment(docID: "", id: "", dreamId: "", comment: "", dream: Dream(docID: "", id: "", title: "", description: "", likeCount: 0, commentCount: 0))
                     self.newComment = ""
                 } label: {
                     Text("Vazgeç").foregroundColor(.red).padding([.vertical], 10)
@@ -113,16 +117,16 @@ struct DreamDetailScreen: View {
                 return Alert(title: Text("Hata"), message: Text(likeViewModel.alertMessage))
             }
         }
-        .alert(isPresented: $commentViewModel.alert){
-            if commentViewModel.alertType == "success"{
-                return Alert(title: Text("Başarılı"), message: Text(commentViewModel.alertMessage), dismissButton: .default(Text("Kapat"), action: {
-                    self.editCommentSheet = false
-                    self.newComment = ""
-                }))
-            } else{
-                return Alert(title: Text("Hata"), message: Text(commentViewModel.alertMessage))
-            }
-        }
+//        .alert(isPresented: $commentViewModel.alert){
+//            if commentViewModel.alertType == "success"{
+//                return Alert(title: Text("Başarılı"), message: Text(commentViewModel.alertMessage), dismissButton: .default(Text("Kapat"), action: {
+//                    self.editCommentSheet = false
+//                    self.newComment = ""
+//                }))
+//            } else{
+//                return Alert(title: Text("Hata"), message: Text(commentViewModel.alertMessage))
+//            }
+//        }
         .onAppear(){
             likeViewModel.fetchDreamLike(dream: dream)
         }
@@ -167,8 +171,8 @@ struct DreamDetailScreen: View {
     }
 }
 
-//struct DreamDetailScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DreamDetailScreen(dream: Dream(docID: "WEREWR", id: "", title: "Aslanların insan suretine girmesi ne demek oluyor?", description: "Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan sure", likeCount: 0, commentCount: 0))
-//    }
-//}
+struct DreamDetailScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        DreamDetailScreen(dream: Dream(docID: "WEREWR", id: "", title: "Aslanların insan suretine girmesi ne demek oluyor?", description: "Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan suretine girmesi ne demek oluyor?Aslanların insan sure", likeCount: 0, commentCount: 0))
+    }
+}

@@ -13,7 +13,7 @@ struct Main: View {
         TabView{
             Explore().navigationBarBackButtonHidden(true)
                 .tabItem{
-                    Label("Keşfet", systemImage: "eye.fill")
+                    Label("Keşfet", systemImage: "moon.stars.fill")
                 }
             MyDreams().navigationBarBackButtonHidden(true)
                 .tabItem{

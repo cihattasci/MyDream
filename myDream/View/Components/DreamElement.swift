@@ -27,7 +27,7 @@ struct DreamElement: View {
                 } label: {
                     HStack {
                         Image(systemName: "heart").foregroundColor(.black).font(.system(size: 20))
-                        Text("\(dream.likeCount)")
+                        Text("\(dream.likeCount)").foregroundColor(.black)
                     }
                 }
                 Button {
@@ -35,7 +35,7 @@ struct DreamElement: View {
                 } label: {
                     HStack {
                         Image(systemName: "ellipsis.bubble.fill").foregroundColor(.black).font(.system(size: 20))
-                        Text("\(dream.commentCount)")
+                        Text("\(dream.commentCount)").foregroundColor(.black)
                     }
                 }
                 Spacer()

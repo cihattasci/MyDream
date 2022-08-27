@@ -39,7 +39,7 @@ struct AddDreamScreen: View {
     func addDream(){
         if(!title.isEmpty && !description.isEmpty){
             loading = true
-            Firestore.firestore().collection("dreams").addDocument(data: ["id": uid ?? "", "title": title, "description": description, "createdAt": FirebaseFirestore.FieldValue.serverTimestamp()]) { error in
+            Firestore.firestore().collection("dreams").addDocument(data: ["id": uid ?? "", "title": title, "description": description, "likeCount": 0, "commentCount": 0, "createdAt": FirebaseFirestore.FieldValue.serverTimestamp()]) { error in
                 if error != nil{
                     loading = false
                     successAlert = false

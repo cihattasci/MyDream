@@ -11,4 +11,5 @@ struct Like: Codable, Identifiable, Hashable{
     let docID: String
     let id: String
     let dreamId: String
+    let dream: Dream
 }

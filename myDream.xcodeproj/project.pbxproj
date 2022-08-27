@@ -47,11 +47,14 @@
 		9B872C4B2846ACB200FCDAEC /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 9B872C4A2846ACB200FCDAEC /* FirebaseStorageCombine-Community */; };
 		9B8BD5F328A2C55D00976421 /* LikeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8BD5F228A2C55D00976421 /* LikeManager.swift */; };
 		9B8BD5F528A2C69500976421 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8BD5F428A2C69500976421 /* Like.swift */; };
+		9B96ED8928A67CB000D1B799 /* LikesDream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B96ED8828A67CB000D1B799 /* LikesDream.swift */; };
+		9B96ED8B28A67D2100D1B799 /* CommentedDream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B96ED8A28A67D2100D1B799 /* CommentedDream.swift */; };
+		9B96ED8D28A67E3400D1B799 /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B96ED8C28A67E3400D1B799 /* ChangePassword.swift */; };
+		9B96ED8F28A67E4D00D1B799 /* ChangeEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B96ED8E28A67E4D00D1B799 /* ChangeEmail.swift */; };
 		9BA8980F289FEFB100A0E1FD /* CommentElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA8980E289FEFB100A0E1FD /* CommentElement.swift */; };
 		9BAF7B7B286275CC009BDE0F /* AddDreamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF7B7A286275CC009BDE0F /* AddDreamScreen.swift */; };
 		9BB363F62895A49400FA9D59 /* AddCommentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB363F52895A49400FA9D59 /* AddCommentScreen.swift */; };
 		9BC6D2542896F07500411F82 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC6D2532896F07500411F82 /* Comment.swift */; };
-		9BFB1949287B12B100090BEE /* EditDreamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB1948287B12B100090BEE /* EditDreamScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,11 +80,14 @@
 		9B872C302846A34400FCDAEC /* myDream.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = myDream.xcdatamodel; sourceTree = "<group>"; };
 		9B8BD5F228A2C55D00976421 /* LikeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeManager.swift; sourceTree = "<group>"; };
 		9B8BD5F428A2C69500976421 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		9B96ED8828A67CB000D1B799 /* LikesDream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesDream.swift; sourceTree = "<group>"; };
+		9B96ED8A28A67D2100D1B799 /* CommentedDream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentedDream.swift; sourceTree = "<group>"; };
+		9B96ED8C28A67E3400D1B799 /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
+		9B96ED8E28A67E4D00D1B799 /* ChangeEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmail.swift; sourceTree = "<group>"; };
 		9BA8980E289FEFB100A0E1FD /* CommentElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentElement.swift; sourceTree = "<group>"; };
 		9BAF7B7A286275CC009BDE0F /* AddDreamScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDreamScreen.swift; sourceTree = "<group>"; };
 		9BB363F52895A49400FA9D59 /* AddCommentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentScreen.swift; sourceTree = "<group>"; };
 		9BC6D2532896F07500411F82 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		9BFB1948287B12B100090BEE /* EditDreamScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDreamScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,8 +168,11 @@
 				9BAF7B7A286275CC009BDE0F /* AddDreamScreen.swift */,
 				9B0124532849480A008631BA /* LoginScreen.swift */,
 				9B15972D286F63D7001B2898 /* DreamDetailScreen.swift */,
-				9BFB1948287B12B100090BEE /* EditDreamScreen.swift */,
 				9BB363F52895A49400FA9D59 /* AddCommentScreen.swift */,
+				9B96ED8828A67CB000D1B799 /* LikesDream.swift */,
+				9B96ED8A28A67D2100D1B799 /* CommentedDream.swift */,
+				9B96ED8C28A67E3400D1B799 /* ChangePassword.swift */,
+				9B96ED8E28A67E4D00D1B799 /* ChangeEmail.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -319,9 +328,12 @@
 				9B012458284948AA008631BA /* Input.swift in Sources */,
 				9BA8980F289FEFB100A0E1FD /* CommentElement.swift in Sources */,
 				9B28879D286A12E000BD4F9B /* DreamManager.swift in Sources */,
+				9B96ED8B28A67D2100D1B799 /* CommentedDream.swift in Sources */,
 				9B872C272846A34200FCDAEC /* ContentView.swift in Sources */,
 				9B872C252846A34200FCDAEC /* myDreamApp.swift in Sources */,
+				9B96ED8D28A67E3400D1B799 /* ChangePassword.swift in Sources */,
 				9B73EABD289E8D4A00B4FC63 /* CommentManager.swift in Sources */,
+				9B96ED8928A67CB000D1B799 /* LikesDream.swift in Sources */,
 				9B783A9A286A622700F3282B /* MyDreams.swift in Sources */,
 				9B872C312846A34400FCDAEC /* myDream.xcdatamodeld in Sources */,
 				9BAF7B7B286275CC009BDE0F /* AddDreamScreen.swift in Sources */,
@@ -332,9 +344,9 @@
 				9B3B93642868BFCF002FE453 /* AuthManager.swift in Sources */,
 				9B28879F286A137900BD4F9B /* Dream.swift in Sources */,
 				9B0124542849480A008631BA /* LoginScreen.swift in Sources */,
+				9B96ED8F28A67E4D00D1B799 /* ChangeEmail.swift in Sources */,
 				9B8BD5F328A2C55D00976421 /* LikeManager.swift in Sources */,
 				9BC6D2542896F07500411F82 /* Comment.swift in Sources */,
-				9BFB1949287B12B100090BEE /* EditDreamScreen.swift in Sources */,
 				9B15972E286F63D7001B2898 /* DreamDetailScreen.swift in Sources */,
 				9B1E64FE286122BA009FEB26 /* Explore.swift in Sources */,
 				9BB363F62895A49400FA9D59 /* AddCommentScreen.swift in Sources */,

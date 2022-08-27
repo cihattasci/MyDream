@@ -12,4 +12,5 @@ struct Comment: Codable, Identifiable, Hashable{
     let id: String
     let dreamId: String
     var comment: String
+    let dream: Dream
 }
