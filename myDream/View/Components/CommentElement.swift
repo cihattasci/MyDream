@@ -21,8 +21,8 @@ struct CommentElement: View {
     }
 }
 
-struct CommentElement_Previews: PreviewProvider {
-    static var previews: some View {
-        CommentElement(comment: Comment(docID: "dsfg", id: "sdg", dreamId: "fgfd", comment: "sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdsfdsfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf"), canEdit: true)
-    }
-}
+//struct CommentElement_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CommentElement(comment: Comment(docID: "dsfg", id: "sdg", dreamId: "fgfd", comment: "sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdsfdsfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf"), canEdit: true)
+//    }
+//}

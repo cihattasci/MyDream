@@ -8,7 +8,23 @@
 import SwiftUI
 import Firebase
 
-//rüyam yoksa sayfası oluştur
+struct EmptyMyDream: View{
+    @Binding var goAddDream: Bool
+    
+    var body: some View{
+        VStack {
+            Image(systemName: "moon.stars.fill").font(.system(size: UIScreen.main.bounds.height * 0.2)).foregroundColor(.black)
+            HStack {
+                Text("Buralar mışıl mışıl..").font(.title3)
+                Button {
+                    goAddDream = true
+                } label: {
+                    Text("Rüyanı Paylaş").font(.title3)
+                }.foregroundColor(.blue)
+            }.padding([.top], 10)
+        }
+    }
+}
 
 struct MyDreams: View {
     @ObservedObject var dreamViewModel = DreamManager()
@@ -32,21 +48,23 @@ struct MyDreams: View {
                     Rectangle()
                         .frame(width: UIScreen.main.bounds.width, height: 0)
                         .background(Color(hex: 0x03fcbe))
-                    List{
-                        ForEach(dreamViewModel.myDreams, id: \.self) { dream in
-                            NavigationLink(destination: EditDreamScreen()){
+                    if dreamViewModel.myDreams.count != 0{
+                        List{
+                            ForEach(dreamViewModel.myDreams, id: \.self) { dream in
                                 DreamElement(dream: Dream(docID: dream.docID, id: dream.id, title: dream.title, description: dream.description, likeCount: dream.likeCount, commentCount: dream.commentCount))
-                            }
-                            .swipeActions(edge: .trailing) {
-                                Button(role: .destructive) {
-                                    removeDream(dream: dream)
-                                } label: {
-                                    Label("Sil", systemImage: "trash").foregroundColor(.white)
+                                .swipeActions(edge: .trailing) {
+                                    Button(role: .destructive) {
+                                        removeDream(dream: dream)
+                                    } label: {
+                                        Label("Sil", systemImage: "trash").foregroundColor(.white)
+                                    }
                                 }
                             }
+                        }.refreshable {
+                            dreamViewModel.fetchMyDreams()
                         }
-                    }.refreshable {
-                        dreamViewModel.fetchMyDreams()
+                    } else{
+                        EmptyMyDream(goAddDream: $addScreen)
                     }
                 }
                 .toolbar{
@@ -64,6 +82,7 @@ struct MyDreams: View {
                 .navigationTitle("Rüyalarım")
                 .navigationBarTitleDisplayMode(.inline)
             }
+            
         }
     }
 }

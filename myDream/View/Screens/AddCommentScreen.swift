@@ -46,7 +46,7 @@ struct AddCommentScreen: View {
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     Button {
-                        commentViewModel.addCommentToDream(dreamId: dream.id, docID: dream.docID, comment: comment)
+                        commentViewModel.addCommentToDream(dreamId: dream.id, docID: dream.docID, comment: comment, dream: dream)
                     } label: {
                         Text("Yorumu Ekle").foregroundColor(.blue)
                     }.disabled(comment.isEmpty)

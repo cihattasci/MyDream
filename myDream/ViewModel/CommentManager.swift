@@ -18,10 +18,11 @@ class Commentmanager: ObservableObject{
     @Published var alertType: String = "success"
     @Published var alertMessage: String = ""
     @Published var dreamComments = [Comment]()
+    @Published var myComments = [Comment]()
     
-    func addCommentToDream(dreamId: String, docID: String, comment: String){
+    func addCommentToDream(dreamId: String, docID: String, comment: String, dream: Dream){
         loading = true
-        db.addDocument(data: ["id": user?.uid ?? "", "dreamId": dreamId, "comment": comment, "createdAt": FirebaseFirestore.FieldValue.serverTimestamp()]) {error in
+        db.addDocument(data: ["id": user?.uid ?? "", "dreamId": dreamId, "comment": comment, "createdAt": FirebaseFirestore.FieldValue.serverTimestamp(), "dreamDocId": dream.docID, "dreamTitle": dream.title, "dreamDescription": dream.description, "dreamLikeCount": dream.likeCount, "dreamCommentCount": dream.commentCount + 1]) {error in
             if error == nil{
                 self.dreamDB.document("\(docID)").updateData(["commentCount": FieldValue.increment(Int64(1))]){err in
                     if err == nil{
@@ -59,8 +60,12 @@ class Commentmanager: ObservableObject{
                 let id = data["id"] as? String ?? ""
                 let dreamId = data["dreamId"] as? String ?? ""
                 let comment = data["comment"] as? String ?? ""
+                let dreamTitle = data["dreamTitle"] as? String ?? ""
+                let dreamDescription = data["dreamDescription"] as? String ?? ""
+                let dreamLikeCount = data["dreamLikeCount"] as? Int ?? 0
+                let dreamCommentCount = data["dreamCommentCount"] as? Int ?? 0
                 
-                return Comment(docID: docId, id: id, dreamId: dreamId, comment: comment)
+                return Comment(docID: docId, id: id, dreamId: dreamId, comment: comment, dream: Dream(docID: docId, id: dreamId, title: dreamTitle, description: dreamDescription, likeCount: dreamLikeCount, commentCount: dreamCommentCount))
             })
             
             self.loading = false
@@ -102,6 +107,31 @@ class Commentmanager: ObservableObject{
                     self.dreamComments[indexOfComment].comment = newComment
                 }
             }
+        }
+    }
+    
+    func getMyComments(){
+        db.whereField("id", isEqualTo: user?.uid ?? "").getDocuments { snapshot, error in
+            guard let documents = snapshot?.documents else{
+                print("no likes")
+                return
+            }
+            
+            let myComments = documents.map { snap -> Comment in
+                let data = snap.data()
+                let id = data["id"] as? String ?? ""
+                let docId = data["dreamDocId"] as? String ?? ""
+                let dreamId = data["dreamId"] as? String ?? ""
+                let comment = data["comment"] as? String ?? ""
+                let dreamTitle = data["dreamTitle"] as? String ?? ""
+                let dreamDescription = data["dreamDescription"] as? String ?? ""
+                let dreamLikeCount = data["dreamLikeCount"] as? Int ?? 0
+                let dreamCommentCount = data["dreamCommentCount"] as? Int ?? 0
+                
+                return Comment(docID: docId, id: id, dreamId: dreamId, comment: comment, dream: Dream(docID: docId, id: dreamId, title: dreamTitle, description: dreamDescription, likeCount: dreamLikeCount, commentCount: dreamCommentCount))
+            }
+            
+            self.myComments = myComments
         }
     }
 }
