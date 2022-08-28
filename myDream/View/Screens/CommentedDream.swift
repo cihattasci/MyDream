@@ -26,12 +26,12 @@ struct CommentedDream: View {
             .refreshable {
                 commentViewModel.getMyComments()
             }
-            .onAppear(){
-                commentViewModel.getMyComments()
-            }
-            .navigationTitle("Yorumlarım")
-            .navigationBarTitleDisplayMode(.inline)
         }
+        .onAppear(){
+            commentViewModel.getMyComments()
+        }
+        .navigationTitle("Yorumlarım")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
