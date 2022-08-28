@@ -9,8 +9,11 @@ import SwiftUI
 import Firebase
 
 struct Settings: View {
-    @State var loading: Bool = false
-    @State var notification: Bool = false
+    @ObservedObject var authViewModel = AuthManager()
+    @State private var loading: Bool = false
+    @State private var notification: Bool = false
+    @State private var openSheet: Bool = false
+    @State private var newEmail: String = ""
     
     func signOut(){
         do{
@@ -56,10 +59,10 @@ struct Settings: View {
                             } label: {
                                 Text("Şifre Değiştir")
                             }
-                            NavigationLink {
-                                ChangeEmail()
+                            Button {
+                                self.openSheet.toggle()
                             } label: {
-                                Text("E-Posta Değiştir")
+                                Text("E-Posta Değiştir").foregroundColor(.black)
                             }
                             //Text("Dil & Bölge")
                         } header: {
@@ -76,6 +79,26 @@ struct Settings: View {
                         }
                     }
                 }
+                .alert(isPresented: $authViewModel.alert){
+                    if authViewModel.alertType == .success{
+                        return Alert(title: Text("İşlem Başarılı"), message: Text(authViewModel.alertText), dismissButton: .default(Text("Kapat"), action: {
+                            self.openSheet = false
+                        }))
+                    } else{
+                        return Alert(title: Text("Hata"), message: Text(authViewModel.alertText), dismissButton: .default(Text("Kapat")))
+                    }
+                }
+                .sheet(isPresented: $openSheet, content: {
+                    VStack{
+                        Input(value: $newEmail, placeHolder: "Yeni posta", isSecure: false, width: UIScreen.main.bounds.width * 0.9).padding([.top], 30)
+                        Spacer()
+                        Button {
+                            authViewModel.updateEmail(newMail: newEmail)
+                        } label: {
+                            Text("Güncelle").foregroundColor(.blue)
+                        }.disabled(self.newEmail.isEmpty)
+                    }
+                })
                 .navigationTitle("Ayarlar")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(false)
